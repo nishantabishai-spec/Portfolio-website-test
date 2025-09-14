@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Art Portfolio Design System - Elegant & Clean Gallery Aesthetic */
+
+@layer base {
+  :root {
+    /* Core Colors - Whimsical Watercolor Palette */
+    --background: 320 30% 98%;
+    --foreground: 210 6% 15%;
+    
+    /* Gallery Canvas - Soft watercolor paper */
+    --canvas: 45 60% 96%;
+    --canvas-foreground: 210 6% 20%;
+    
+    /* Elegant Surfaces */
+    --surface: 320 25% 97%;
+    --surface-foreground: 210 6% 25%;
+    
+    /* Accent - Watercolor inspiration */
+    --primary: 340 75% 65%;
+    --primary-foreground: 0 0% 98%;
+    
+    /* Navigation & UI */
+    --secondary: 200 50% 85%;
+    --secondary-foreground: 210 6% 20%;
+    
+    --muted: 320 20% 94%;
+    --muted-foreground: 210 6% 45%;
+    
+    --accent: 45 70% 88%;
+    --accent-foreground: 210 6% 20%;
+    
+    /* Interactive Elements */
+    --border: 320 30% 85%;
+    --input: 320 20% 92%;
+    --ring: 340 75% 65%;
+    
+    /* Cards & Surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 210 6% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 6% 15%;
+    
+    /* Whimsical colors for watercolor aesthetic */
+    --whimsical-primary: 340 85% 65%;
+    --whimsical-secondary: 200 75% 70%;
+    --whimsical-accent: 45 90% 75%;
+    --whimsical-accent-hover: 45 90% 65%;
+    --whimsical-foreground: 222 84% 4.9%;
+    --whimsical-header: 340 25% 95%;
+    --whimsical-border: 340 40% 85%;
+    --whimsical-soft: 200 30% 90%;
+    
+    /* Sidebar */
+    --sidebar-background: 320 25% 96%;
+    --sidebar-foreground: 210 6% 20%;
+    --sidebar-primary: 340 75% 65%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 320 30% 92%;
+    --sidebar-accent-foreground: 210 6% 20%;
+    --sidebar-border: 320 25% 88%;
+    --sidebar-ring: 340 75% 65%;
+    
+    /* Utility */
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --radius: 0.5rem;
+    
+    /* Gallery Specific */
+    --gallery-shadow: 340 85% 65% 0.15;
+    --gallery-hover: 340 30% 94%;
+    --gallery-focus: 340 75% 65%;
+  }
+
+  .dark {
+    --background: 210 6% 8%;
+    --foreground: 210 6% 95%;
+    --canvas: 210 6% 10%;
+    --canvas-foreground: 210 6% 90%;
+    --surface: 210 6% 12%;
+    --surface-foreground: 210 6% 85%;
+    --primary: 210 6% 90%;
+    --primary-foreground: 210 6% 10%;
+    --secondary: 210 6% 15%;
+    --secondary-foreground: 210 6% 85%;
+    --muted: 210 6% 14%;
+    --muted-foreground: 210 6% 60%;
+    --accent: 210 6% 16%;
+    --accent-foreground: 210 6% 90%;
+    --border: 210 6% 18%;
+    --input: 210 6% 16%;
+    --ring: 210 6% 85%;
+    --card: 210 6% 10%;
+    --card-foreground: 210 6% 95%;
+    --popover: 210 6% 10%;
+    --popover-foreground: 210 6% 95%;
+    --sidebar-background: 210 6% 8%;
+    --sidebar-foreground: 210 6% 85%;
+    --sidebar-primary: 210 6% 90%;
+    --sidebar-primary-foreground: 210 6% 10%;
+    --sidebar-accent: 210 6% 14%;
+    --sidebar-accent-foreground: 210 6% 85%;
+    --sidebar-border: 210 6% 16%;
+    --sidebar-ring: 210 6% 85%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --gallery-shadow: 0 0% 0% 0.25;
+    --gallery-hover: 210 6% 12%;
+    --gallery-focus: 210 6% 85%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .gallery-title {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .gallery-nav {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .gallery-nav:hover {
+    @apply bg-gallery-hover;
+  }
+  
+  .gallery-image {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px hsla(var(--gallery-shadow));
+  }
+  
+  .gallery-image:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px hsla(var(--gallery-shadow));
+  }
+}
+
+@layer components {
+  .hero-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, hsla(var(--background)) 0%, transparent 50%, hsla(var(--background)) 100%);
+    opacity: 0.7;
+  }
+}
