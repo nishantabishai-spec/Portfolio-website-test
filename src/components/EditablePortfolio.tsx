@@ -27,7 +27,7 @@ interface Artwork {
 // Put all artwork images in src/assets/artworks/
 // e.g., src/assets/artworks/artwork-1.jpg
 const artworkModules = import.meta.glob('@/assets/*.{jpg,png}', { eager: true, as: 'url'  });
-const artworkImages = Object.values(artworkModules) as string[];
+
 
 const initialArtworks: Artwork[] = [
   {
@@ -35,7 +35,8 @@ const initialArtworks: Artwork[] = [
     title: "reeeeee",
     year: "2024",
     medium: "Mixed Media on Canvas",
-    images: [artwork1],
+    images: [artworkModules["house inthe mountainscloseup2.jpg"]],
+
   },
   {
     id: 2,
