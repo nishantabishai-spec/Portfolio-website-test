@@ -114,6 +114,14 @@ export const EditablePortfolio = () => {
     setIsViewerOpen(true);
   };
 
+  const handleExport = () => {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(artworks, null, 2));
+    const link = document.createElement("a");
+    link.href = dataStr;
+    link.download = "artworks.json";
+    link.click();
+  };
+
   return (
     <div className="min-h-screen bg-canvas p-8">
       <div className="max-w-6xl mx-auto">
@@ -129,101 +137,109 @@ export const EditablePortfolio = () => {
           </div>
           
           {isEditMode && (
-            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-              <DialogTrigger asChild>
-                <Button 
-                  onClick={handleAddArtwork}
-                  className="bg-whimsical-primary hover:bg-whimsical-primary/90 text-white rounded-full p-3 shadow-lg"
-                  size="icon"
-                >
-                  <Plus className="h-5 w-5" />
-                </Button>
-              </DialogTrigger>
-            <DialogContent className="sm:max-w-md">
-              <DialogHeader>
-                <DialogTitle className="gallery-title">
-                  {isEditing ? "Edit Artwork" : "Add New Artwork"}
-                </DialogTitle>
-              </DialogHeader>
-              <div className="space-y-4">
-                <div>
-                  <Label htmlFor="title">Title</Label>
-                  <Input
-                    id="title"
-                    value={editingArtwork?.title || ""}
-                    onChange={(e) => setEditingArtwork(prev => 
-                      prev ? { ...prev, title: e.target.value } : null
-                    )}
-                    placeholder="Artwork title"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="year">Year</Label>
-                  <Input
-                    id="year"
-                    value={editingArtwork?.year || ""}
-                    onChange={(e) => setEditingArtwork(prev => 
-                      prev ? { ...prev, year: e.target.value } : null
-                    )}
-                    placeholder="2024"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="medium">Medium</Label>
-                  <Input
-                    id="medium"
-                    value={editingArtwork?.medium || ""}
-                    onChange={(e) => setEditingArtwork(prev => 
-                      prev ? { ...prev, medium: e.target.value } : null
-                    )}
-                    placeholder="Oil on Canvas"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="image">Images</Label>
-                  <Input
-                    id="image"
-                    type="file"
-                    accept="image/*"
-                    multiple
-                    onChange={handleImageUpload}
-                  />
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Current images: {editingArtwork?.images?.length || 0}
-                  </p>
-                  {!!(editingArtwork?.images?.length) && (
-                    <div className="mt-3 grid grid-cols-3 gap-3">
-                      {editingArtwork!.images.map((img, idx) => (
-                        <div key={idx} className="relative group rounded-md overflow-hidden border border-whimsical-border/40 bg-whimsical-soft/40">
-                          <img
-                            src={img}
-                            alt={`Preview ${idx + 1}`}
-                            className="h-20 w-full object-cover"
-                          />
-                          <Button
-                            type="button"
-                            size="icon"
-                            variant="destructive"
-                            className="absolute top-1 right-1 h-6 w-6 opacity-90"
-                            onClick={() => handleRemoveEditingImage(idx)}
-                            aria-label={`Remove image ${idx + 1}`}
-                          >
-                            <Trash2 className="h-3 w-3" />
-                          </Button>
-                        </div>
-                      ))}
+            <div className="flex space-x-2">
+              <Button 
+                onClick={handleExport}
+                className="bg-whimsical-secondary hover:bg-whimsical-secondary/90"
+              >
+                Export JSON
+              </Button>
+              <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button 
+                    onClick={handleAddArtwork}
+                    className="bg-whimsical-primary hover:bg-whimsical-primary/90 text-white rounded-full p-3 shadow-lg"
+                    size="icon"
+                  >
+                    <Plus className="h-5 w-5" />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md">
+                  <DialogHeader>
+                    <DialogTitle className="gallery-title">
+                      {isEditing ? "Edit Artwork" : "Add New Artwork"}
+                    </DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    <div>
+                      <Label htmlFor="title">Title</Label>
+                      <Input
+                        id="title"
+                        value={editingArtwork?.title || ""}
+                        onChange={(e) => setEditingArtwork(prev => 
+                          prev ? { ...prev, title: e.target.value } : null
+                        )}
+                        placeholder="Artwork title"
+                      />
                     </div>
-                  )}
-                </div>
-                <Button 
-                  onClick={handleSaveArtwork}
-                  className="w-full bg-whimsical-secondary hover:bg-whimsical-secondary/90"
-                >
-                  {isEditing ? "Update" : "Add"} Artwork
-                </Button>
-              </div>
-              </DialogContent>
-            </Dialog>
+                    <div>
+                      <Label htmlFor="year">Year</Label>
+                      <Input
+                        id="year"
+                        value={editingArtwork?.year || ""}
+                        onChange={(e) => setEditingArtwork(prev => 
+                          prev ? { ...prev, year: e.target.value } : null
+                        )}
+                        placeholder="2024"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="medium">Medium</Label>
+                      <Input
+                        id="medium"
+                        value={editingArtwork?.medium || ""}
+                        onChange={(e) => setEditingArtwork(prev => 
+                          prev ? { ...prev, medium: e.target.value } : null
+                        )}
+                        placeholder="Oil on Canvas"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="image">Images</Label>
+                      <Input
+                        id="image"
+                        type="file"
+                        accept="image/*"
+                        multiple
+                        onChange={handleImageUpload}
+                      />
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Current images: {editingArtwork?.images?.length || 0}
+                      </p>
+                      {!!(editingArtwork?.images?.length) && (
+                        <div className="mt-3 grid grid-cols-3 gap-3">
+                          {editingArtwork!.images.map((img, idx) => (
+                            <div key={idx} className="relative group rounded-md overflow-hidden border border-whimsical-border/40 bg-whimsical-soft/40">
+                              <img
+                                src={img}
+                                alt={`Preview ${idx + 1}`}
+                                className="h-20 w-full object-cover"
+                              />
+                              <Button
+                                type="button"
+                                size="icon"
+                                variant="destructive"
+                                className="absolute top-1 right-1 h-6 w-6 opacity-90"
+                                onClick={() => handleRemoveEditingImage(idx)}
+                                aria-label={`Remove image ${idx + 1}`}
+                              >
+                                <Trash2 className="h-3 w-3" />
+                              </Button>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <Button 
+                      onClick={handleSaveArtwork}
+                      className="w-full bg-whimsical-secondary hover:bg-whimsical-secondary/90"
+                    >
+                      {isEditing ? "Update" : "Add"} Artwork
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </div>
           )}
         </header>
 
