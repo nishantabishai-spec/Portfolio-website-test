@@ -5,16 +5,19 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { ImageViewer } from "@/components/ImageViewer";
 import artwork1 from "@/assets/artwork-1.jpg";
 import artwork2 from "@/assets/artwork-2.jpg";
 import artwork3 from "@/assets/artwork-3.jpg";
+
+const isEditMode = import.meta.env.VITE_EDIT_MODE === 'true' || import.meta.env.DEV;
 
 interface Artwork {
   id: number;
   title: string;
   year: string;
   medium: string;
-  image: string;
+  images: string[];
 }
 
 const initialArtworks: Artwork[] = [
@@ -23,21 +26,21 @@ const initialArtworks: Artwork[] = [
     title: "Flowing Forms",
     year: "2024",
     medium: "Mixed Media on Canvas",
-    image: artwork1,
+    images: [artwork1],
   },
   {
     id: 2,
     title: "Geometric Harmony",
     year: "2024",
     medium: "Acrylic on Canvas",
-    image: artwork2,
+    images: [artwork2],
   },
   {
     id: 3,
     title: "Expression in Motion",
     year: "2023",
     medium: "Oil on Canvas",
-    image: artwork3,
+    images: [artwork3],
   },
 ];
 
@@ -46,6 +49,8 @@ export const EditablePortfolio = () => {
   const [editingArtwork, setEditingArtwork] = useState<Artwork | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [viewingArtwork, setViewingArtwork] = useState<Artwork | null>(null);
+  const [isViewerOpen, setIsViewerOpen] = useState(false);
 
   const handleAddArtwork = () => {
     setEditingArtwork({
@@ -53,7 +58,7 @@ export const EditablePortfolio = () => {
       title: "",
       year: "",
       medium: "",
-      image: artwork1, // Default image
+      images: [artwork1], // Default image
     });
     setIsEditing(false);
     setIsDialogOpen(true);
@@ -85,11 +90,28 @@ export const EditablePortfolio = () => {
   };
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file && editingArtwork) {
-      const imageUrl = URL.createObjectURL(file);
-      setEditingArtwork({ ...editingArtwork, image: imageUrl });
-    }
+    const files = Array.from(event.target.files || []);
+    if (!files.length || !editingArtwork) return;
+
+    const urls = files.map((file) => URL.createObjectURL(file));
+    setEditingArtwork({
+      ...editingArtwork,
+      images: [...(editingArtwork.images || []), ...urls],
+    });
+    // allow re-adding the same file if needed
+    event.currentTarget.value = "";
+  };
+
+  const handleRemoveEditingImage = (index: number) => {
+    if (!editingArtwork) return;
+    const nextImages = [...(editingArtwork.images || [])];
+    nextImages.splice(index, 1);
+    setEditingArtwork({ ...editingArtwork, images: nextImages });
+  };
+
+  const handleViewArtwork = (artwork: Artwork) => {
+    setViewingArtwork(artwork);
+    setIsViewerOpen(true);
   };
 
   return (
@@ -106,16 +128,17 @@ export const EditablePortfolio = () => {
             </p>
           </div>
           
-          <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-            <DialogTrigger asChild>
-              <Button 
-                onClick={handleAddArtwork}
-                className="bg-whimsical-primary hover:bg-whimsical-primary/90 text-white rounded-full p-3 shadow-lg"
-                size="icon"
-              >
-                <Plus className="h-5 w-5" />
-              </Button>
-            </DialogTrigger>
+          {isEditMode && (
+            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+              <DialogTrigger asChild>
+                <Button 
+                  onClick={handleAddArtwork}
+                  className="bg-whimsical-primary hover:bg-whimsical-primary/90 text-white rounded-full p-3 shadow-lg"
+                  size="icon"
+                >
+                  <Plus className="h-5 w-5" />
+                </Button>
+              </DialogTrigger>
             <DialogContent className="sm:max-w-md">
               <DialogHeader>
                 <DialogTitle className="gallery-title">
@@ -157,13 +180,40 @@ export const EditablePortfolio = () => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="image">Image</Label>
+                  <Label htmlFor="image">Images</Label>
                   <Input
                     id="image"
                     type="file"
                     accept="image/*"
+                    multiple
                     onChange={handleImageUpload}
                   />
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Current images: {editingArtwork?.images?.length || 0}
+                  </p>
+                  {!!(editingArtwork?.images?.length) && (
+                    <div className="mt-3 grid grid-cols-3 gap-3">
+                      {editingArtwork!.images.map((img, idx) => (
+                        <div key={idx} className="relative group rounded-md overflow-hidden border border-whimsical-border/40 bg-whimsical-soft/40">
+                          <img
+                            src={img}
+                            alt={`Preview ${idx + 1}`}
+                            className="h-20 w-full object-cover"
+                          />
+                          <Button
+                            type="button"
+                            size="icon"
+                            variant="destructive"
+                            className="absolute top-1 right-1 h-6 w-6 opacity-90"
+                            onClick={() => handleRemoveEditingImage(idx)}
+                            aria-label={`Remove image ${idx + 1}`}
+                          >
+                            <Trash2 className="h-3 w-3" />
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <Button 
                   onClick={handleSaveArtwork}
@@ -172,8 +222,9 @@ export const EditablePortfolio = () => {
                   {isEditing ? "Update" : "Add"} Artwork
                 </Button>
               </div>
-            </DialogContent>
-          </Dialog>
+              </DialogContent>
+            </Dialog>
+          )}
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -182,28 +233,36 @@ export const EditablePortfolio = () => {
               <CardContent className="p-0">
                 <div className="gallery-image rounded-lg overflow-hidden">
                   <img
-                    src={artwork.image}
+                    src={artwork.images[0]}
                     alt={artwork.title}
-                    className="w-full h-80 object-cover"
+                    className="w-full h-80 object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
+                    onClick={() => handleViewArtwork(artwork)}
                   />
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 space-x-2">
-                    <Button
-                      size="icon"
-                      variant="secondary"
-                      onClick={() => handleEditArtwork(artwork)}
-                      className="bg-whimsical-accent hover:bg-whimsical-accent-hover h-8 w-8"
-                    >
-                      <Pencil className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      size="icon"
-                      variant="destructive"
-                      onClick={() => handleDeleteArtwork(artwork.id)}
-                      className="h-8 w-8"
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
-                  </div>
+                  {artwork.images.length > 1 && (
+                    <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
+                      +{artwork.images.length - 1} more
+                    </div>
+                  )}
+                  {isEditMode && (
+                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 space-x-2">
+                      <Button
+                        size="icon"
+                        variant="secondary"
+                        onClick={() => handleEditArtwork(artwork)}
+                        className="bg-whimsical-accent hover:bg-whimsical-accent-hover h-8 w-8"
+                      >
+                        <Pencil className="h-4 w-4" />
+                      </Button>
+                      <Button
+                        size="icon"
+                        variant="destructive"
+                        onClick={() => handleDeleteArtwork(artwork.id)}
+                        className="h-8 w-8"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  )}
                 </div>
                 <div className="p-4 space-y-2">
                   <h3 className="gallery-title text-xl font-medium text-foreground">
@@ -217,6 +276,12 @@ export const EditablePortfolio = () => {
             </Card>
           ))}
         </div>
+
+        <ImageViewer
+          artwork={viewingArtwork}
+          isOpen={isViewerOpen}
+          onClose={() => setIsViewerOpen(false)}
+        />
       </div>
     </div>
   );

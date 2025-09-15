@@ -1,11 +1,29 @@
+import { EditableImage } from "@/components/EditableImage";
+
+const isEditMode = import.meta.env.VITE_EDIT_MODE === 'true' || import.meta.env.DEV;
+
 const Bio = () => {
   return (
     <div className="min-h-screen bg-canvas p-8">
       <div className="max-w-4xl mx-auto">
-        <header className="mb-12">
+        <header className="mb-12 text-center">
           <h1 className="gallery-title text-4xl font-semibold text-foreground mb-8">
             About the Artist
           </h1>
+          
+          {/* Artist Photo Section */}
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              <div className="w-48 h-48 mx-auto p-2 bg-gradient-to-br from-whimsical-accent/20 to-whimsical-secondary/20 rounded-full shadow-whimsical">
+                <EditableImage
+                  alt="Artist portrait"
+                  className="w-full h-full rounded-full object-cover border-4 border-white shadow-lg"
+                  showEditControls={isEditMode}
+                  placeholder="Add your portrait"
+                />
+              </div>
+            </div>
+          </div>
         </header>
 
         <div className="prose prose-lg max-w-none">
