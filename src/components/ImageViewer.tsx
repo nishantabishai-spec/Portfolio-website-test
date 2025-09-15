@@ -48,9 +48,9 @@ export const ImageViewer = ({
       <DialogContent className="w-[100vw] md:max-w-[95vw] h-[100vh] md:h-[95vh] p-0 overflow-hidden bg-whimsical-soft/95 backdrop-blur-sm border-2 border-whimsical-border/30">
         <div className="flex h-full">
           {/* Image Section - Now takes up more space */}
-          <div className="flex-1 relative flex items-center justify-center p-4 bg-gradient-to-br from-whimsical-soft/50 to-whimsical-accent/20 overflow-hidden">
+          <div className="w-full h-full flex items-center justify-center">
             <div className="w-full h-full flex items-center justify-center">
-              <img src={currentImage} alt={`${artwork.title} - Image ${currentImageIndex + 1}`} className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl animate-fade-in" style={{
+              <img src={currentImage} alt={`${artwork.title} - Image ${currentImageIndex + 1}`} className="w-full h-full object-contain rounded-lg shadow-2xl animate-fade-in" style={{
               filter: 'drop-shadow(0 10px 30px hsl(var(--whimsical-primary) / 0.2))'
             }} />
             </div>
