@@ -35,7 +35,7 @@ const initialArtworks: Artwork[] = [
     title: "reeeeee",
     year: "2024",
     medium: "Mixed Media on Canvas",
-    images: [artworkModules["house inthe mountainscloseup2.jpg"]],
+    images: [artworkModules["/src/assets/house inthe mountainscloseup2.jpg"]],
 
   },
   {
