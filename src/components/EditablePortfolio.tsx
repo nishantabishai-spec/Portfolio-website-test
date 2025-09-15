@@ -20,6 +20,15 @@ interface Artwork {
   images: string[];
 }
 
+// ---------------------------
+// DYNAMIC IMPORT TRICK
+// ---------------------------
+
+// Put all artwork images in src/assets/artworks/
+// e.g., src/assets/artworks/artwork-1.jpg
+const artworkModules = import.meta.glob('@/assets/artworks/*.{jpg,png}', { as: 'url' });
+const artworkImages = Object.values(artworkModules) as string[];
+
 const initialArtworks: Artwork[] = [
   {
     id: 1,
