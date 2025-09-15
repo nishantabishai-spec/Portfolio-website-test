@@ -26,7 +26,7 @@ interface Artwork {
 
 // Put all artwork images in src/assets/artworks/
 // e.g., src/assets/artworks/artwork-1.jpg
-const artworkModules = import.meta.glob('@/assets/artworks/*.{jpg,png}', { as: 'url' });
+const artworkModules = import.meta.glob('@/assets/*.{jpg,png}', { as: 'url' });
 const artworkImages = Object.values(artworkModules) as string[];
 
 const initialArtworks: Artwork[] = [
