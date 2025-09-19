@@ -18,6 +18,7 @@ interface Artwork {
   year: string;
   medium: string;
   images: string[];
+  description: string;
 }
 
 // ---------------------------
@@ -32,26 +33,270 @@ const artworkModules = import.meta.glob('@/assets/*.{jpg,png}', { eager: true, a
 const initialArtworks: Artwork[] = [
   {
     id: 1,
-    title: "reeeeee",
-    year: "2024",
-    medium: "Mixed Media on Canvas",
-    images: [artworkModules["/src/assets/house inthe mountainscloseup2.jpg"]],
-
-  },
+    title: "Serenity : Up in Smoke",
+    year: "2025",
+    medium: "Book Cover - Personal Project",
+    description: "Concept Book Cover inspired by a hill near my house. Digitally painted it over the course of two days. A big emphasis was placed on creating a whimsical and tranquil tone, as well as detailed rendering in foliage.",
+    images: [artworkModules["/src/assets/NishantVelavan_houseinthemountains23_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_houseinthemountains22_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_houseinthemountains2_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_houseinthemountainscloseup3_W.jpg"],
+  ],
+}
+  ,
   {
     id: 2,
-    title: "Geometric Harmony",
-    year: "2024",
-    medium: "Acrylic on Canvas",
-    images: [artwork2],
+    title: "Taro : Man's Weirdest Fren",
+    year: "2025",
+    medium: "Cinematic Study - Personal Project",
+    description: "Cinematic study artwork made with animation potential in mind. Conceptualised and illustrated in 4 hours, keeping a focus on engaging composition, vibrant lighting, and expressive characters",
+    images: [artworkModules["/src/assets/NishantVelavan_manandcat_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_ManandCat_Crop.jpg"],
+              artworkModules["/src/assets/NishantVelavan_manandcat_SketchW.jpg"],       
+  ],
   },
   {
     id: 3,
-    title: "Expression in Motion",
-    year: "2023",
-    medium: "Oil on Canvas",
-    images: [artwork3],
+    title: "Nobe Ody's Poetry: A Step Further",
+    year: "2025",
+    medium: "Illustrated Writing - Personal Project",
+    description: "Introspective piece featuring both poetry and illustration by me. A big focus was placed on the connection between the feelings of the writing and the artwork.",
+    images: [artworkModules["/src/assets/NishantVelavan_DistantLonging_poem_2025.jpg"],
+              artworkModules["/src/assets/NishantVelavan_ADistantLonging_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_FieldsofLonging_CLean_W.jpg"],       
+              artworkModules["/src/assets/NishantVelavNishantVelavan_DistantLonging_Clean_2025_W.jpg"],
+            ],
   },
+ {
+    id: 4,
+    title: "A Home I Wish was My Memory",
+    year: "2025",
+    medium: "Location Design - Personal Project",
+    description: "Concept artwork made with animation background potential in mind. The framing was done to intentionally feel like a moment from a story not yet told. ",
+    images: [artworkModules["/src/assets/NishantVelavan_house2_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_house2_CropW.jpg"],
+              artworkModules["/src/assets/NishantVelavan_house2_SketchW.jpg"],       
+            ],
+  },
+   {
+    id: 5,
+    title: "Whispers of a Bluejay",
+    year: "2025",
+    medium: "Book Cover - Personal Project",
+    description: "Concept Book focused on exploration of rendering technique as well as speed. Painted entirely in an 2 hours, what was supposed to be a simple practice artwork turned into something to be rather proud of.",
+    images: [artworkModules["/src/assets/NishantVelavan_WVBirds1.jpg"],
+              artworkModules["/src/assets/NishantVelavan_WVBirds1.1_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_WVBirds1.2_W.jpg"],       
+              artworkModules["/src/assets/NishantVelavan_WVBirds1.3_W.jpg"],
+            ],
+  },
+
+{
+    id: 6,
+    title: "Tassena: A style-blended Journey",
+    year: "2025",
+    medium: "Key Art | Tassena",
+    description: "Key promotional art for the game Tassena. The artwork was used to headline promotional and crowdfunding ventures. Created by blending styles from the game cohesively to bring across a feeling of grandeur, drama, and curiosity.",
+    images: [artworkModules["/src/assets/NishantVelavan_Tassena_Keyart2_ThePeopleV2.jpg"],
+              artworkModules["/src/assets/NishantVelavan_Tassena_Keyart2_ThePeople4k_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_Tassena_Keyart2_ThePeopleV3_W.jpg"],       
+              artworkModules["/src/assets/NishantVelavan_Tassena_ThePeople_Crop.jpg"],
+              artworkModules["/src/assets/NishantVelavan_Tassena_ThePeople_Crop2.jpg"],
+            ],
+  },
+
+{
+    id: 7,
+    title: "A Stream For One to Heal",
+    year: "2025",
+    medium: "Cinematic Study - Personal Project",
+    description: "A cinematic study made during a time of grief and failure. The level of detail and focus on the background is a direct reflection of the emotions of that time seeping into each brushstroke.",
+    images: [artworkModules["/src/assets/NishantVelavan_Unknown01_Full_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_Unknown01_Cove0_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_Unknown01_Cove03_W.jpg"],       
+              artworkModules["/src/assets/NishantVelavan_Unknown01_Crop_W.jpg"],
+            ],
+  },
+
+
+{
+    id: 8,
+    title: "Tassena: Pins & Stickers",
+    year: "2025",
+    medium: "Stickers and Enamel Pin Mockups | Tassena",
+    description: "Merch mockups for the game Tassena. These mockups were used in displaying incentives and potential to investors and crowdfunding.",
+    images: [artworkModules["/src/assets/NishantVelavan_EnamelPins_mockups.jpg"],
+              artworkModules["/src/assets/NishantVelavan_EnamelPins_mockups_Crop.jpg"],
+              artworkModules["/src/assets/NishantVelavan_Sticker_Mockup3.jpg"],
+              artworkModules["/src/assets/NishantVelavan_Sticker_Mockup3_Crop.jpg"],
+            ],
+  },
+
+{
+    id: 9,
+    title: "Skyward Cemetary",
+    year: "2025",
+    medium: "Character Design - Personal Project",
+    description: "Concept Character key art for an OC. This piece aimed to find the harmony between the soft rendering of my backgrounds with characters emphasized prominent linework.",
+    images: [artworkModules["/src/assets/NishantVelavan_falling_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_falling2_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_FallingToInfinity_WIP.jpg"],       
+            ],
+  },
+
+{
+    id: 10,
+    title: "Ballad at the End of the World",
+    year: "2025",
+    medium: "Book Cover - Personal Project",
+    description: "Concept book cover vaguely inspired by a conversation with a friend. The illustration explores my soft and painterly style paired with a much darker color palette.",
+    images: [artworkModules["/src/assets/NishantVelavan_Keysintheburning2_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_Keysintheburning_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_Keysintheburning_crop.jpg"],       
+            ],
+  },
+
+  {
+    id: 11,
+    title: "A Quaint Summer Morning",
+    year: "2025",
+    medium: "Book Cover - Personal Project",
+    description: "Concept book cover made during... well... a rather quaint summer morning :D The illustration began as a simple profile study but then evolved as the warms mellow of the day took more real estate in my mind.",
+    images: [artworkModules["/src/assets/NishantVelavan_quaintsummer_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_quaintsummer_CleanW.jpg"],
+              artworkModules["/src/assets/NishantVelavan_QuaintSummer_Sketch.jpg"],       
+            ],
+  },
+
+  {
+    id: 12,
+    title: "Nobe Ody's Poetry: What You Need",
+    year: "2025",
+    medium: "Illustrated Writing - Personal Project",
+    description: "Introspective piece featuring both poetry and illustration by me. The background maintains a lighter precence in order to elevate the poem rather than fight with it.",
+    images: [artworkModules["/src/assets/NishantVelavan_NishantVelavan_MellowBirds_Poem_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_NishantVelavan_MellowBirds_Clean_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_MellowBirds_CleanAlt.jpg"],       
+            ],
+  },
+
+  {
+    id: 13,
+    title: "Feelings in Welkin Reflection",
+    year: "2025",
+    medium: "Cinematic Study - Personal Project",
+    description: "A cinematic study illustrated to feel like concept stills from animations yet untold. The artworks push stong focal composition to highlight the weight of the moment, while the backgrounds define the emotion and intensity.",
+    images: [artworkModules["/src/assets/NishantVelavan_sunlitwindmill_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_onboat_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_sunlitwindmill_BG_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_sunlitwindmill_AltW.jpg"],
+              artworkModules["/src/assets/NishantVelavan_sunlitwindmill_SketchW.jpg"],       
+            ],
+  },
+
+   {
+    id: 14,
+    title: "Justa : Cloud Study",
+    year: "2024",
+    medium: "Technique Exploration",
+    description: "A very technical study of into rendering clouds to understand form as well as creating varying weight from the same subject.",
+    images: [artworkModules["/src/assets/NishantVelavan_Maybethebutterfliesareasleepv4_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_MaybetheKaolaBearshaveeyesV2_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_Maybethebutterfliesareasleepv1_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_MaybetheKaolaBearshaveeyesV3_W.jpg"],       
+            ],
+  },
+
+   {
+    id: 15,
+    title: "Justa : Forest Study",
+    year: "2024",
+    medium: "Technique Exploration",
+    description: "A study of forests with a focus on understanding rendering texture as well as relaying a cohesive tone.",
+    images: [artworkModules["/src/assets/NishantVelavan_A_Moment_In_The_Forest_result.jpg"],
+              artworkModules["/src/assets/NishantVelavan_TheForest3_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_TheForest2_result.jpg"],
+              artworkModules["/src/assets/NishantVelavan_TheForest1_result.jpg"],      
+            ],
+  },
+
+   {
+    id: 16,
+    title: "OpenBill : Fortress to the Stars",
+    year: "2025",
+    medium: "Book Cover - Personal Project",
+    description: "Book cover project made right after 'whispers of a Bluejay'. The design simply captures the very first idea of a story that came to mind when looking at references of an openbill stork :)",
+    images: [artworkModules["/src/assets/NishantVelavan_WVBirds2_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_WVBirds2.1_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_WVBirds2.3_W.jpg"],      
+            ],
+  },
+
+  {
+    id: 17,
+    title: "Justa : Sketch and Colour Study",
+    year: "2024",
+    medium: "Technique Exploration",
+    description: "A style and technique study into harmonizing between a watercolour feeling and sketchy, rough linework. They also reflect skill in planning and drafting, highlighting parts of process of rough sketcht to final work",
+    images: [artworkModules["/src/assets/NishantVelavan_WorkersVillageTest5_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_WorkersVillageTest1Sketch1_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_WorkersVillageTest7_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_WorkersVillageTest2_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_WorkersVillageTest7Sketch_W.jpg"],       
+            ],
+  },
+
+  {
+    id: 18,
+    title: "Tassena : Physical Artbook",
+    year: "2025",
+    medium: "Artbook Mockup | Tassena",
+    description: "Deluxe physical artbook mockups for the game Tassena. These mockups were used in displaying incentives and potential to investors and crowdfunding",
+    images: [artworkModules["/src/assets/NishantVelavan_DeluxeArtBook_Mockup_Front.jpg"],
+              artworkModules["/src/assets/NishantVelavan_DeluxeArtBook_Mockup_Back.jpg"],
+              artworkModules["/src/assets/NishantVelavan_DeluxeArtBook_Mockup_Open.jpg"],
+              artworkModules["/src/assets/NishantVelavan_DigitalArtbook_Mockup_Front.jpg"],      
+            ],
+  },
+
+  {
+    id: 19,
+    title: "Tassena : Character Cutouts",
+    year: "2024",
+    medium: "Character Designs | In-game Assets | Tassena ",
+    description: "Character design cutouts used in various ways such as in-game dialogue popups, promotional works, and overall visual direction.",
+    images: [artworkModules["/src/assets/NishantVelavan_Tasse_Cutout.jpg"],
+              artworkModules["/src/assets/NishantVelavan_Other_Cutout.jpg"],
+              artworkModules["/src/assets/NishantVelavan_Noci_Cutout.jpg"],
+              artworkModules["/src/assets/NishantVelavan_Tassena_KickstarterTiles.jpg"],     
+            ],
+  },
+
+  {
+    id: 20,
+    title: "Tassena : A kaleidoscope Cove",
+    year: "2024",
+    medium: "Key art | Tassena",
+    description: "Key promotional art for the game Tassena. These were used in general art direct, posters, social media, in-person events, and crowdfunding ventures.",
+    images: [artworkModules["/src/assets/NishantVelavan_Tassena_Demo1_Posterbase1_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_Tassena_KeyArt2_OnACliff_W.jpg"],
+              artworkModules["/src/assets/NishantVelavan_TasseInWater_W.jpg"],      
+            ],
+  },
+
+ {
+    id: 21,
+    title: "Justa : Style Study",
+    year: "2024",
+    medium: "Technique Exploration",
+    description: "More experimental illustration that still fits into the same overall tone of my current core style. A big focus was on finding a harmony between soft color palettes overlayed with hypersaturated linework and etching. This would later evolve into a style used in other work.",
+    images: [artworkModules["/src/assets/NishantVelavan_cottageonahillv2.3_W.png"],
+              artworkModules["/src/assets/NishantVelavan_cottageonahillv2_W.png"],
+              artworkModules["/src/assets/NishantVelavan_cottageonahillWIP1_W.png"],      
+            ],
+  },
+
+
 ];
 
 export const EditablePortfolio = () => {
@@ -68,6 +313,7 @@ export const EditablePortfolio = () => {
       title: "",
       year: "",
       medium: "",
+      description: "",
       images: [artwork1], // Default image
     });
     setIsEditing(false);
@@ -130,11 +376,15 @@ export const EditablePortfolio = () => {
         <header className="mb-12 flex justify-between items-center">
           <div>
             <h1 className="gallery-title text-4xl font-semibold text-foreground mb-4">
-              Portfolio
+              Portfolio <p className="text-foreground text-2xl leading-relaxed max-w-2xl">
+              A Curated Collection of Works Across Various Projects
+            </p>
             </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
-              A curated collection of contemporary works exploring form, color, and expression 
-              through various mediums and techniques.
+             <p className="text-muted-foreground text-m leading-relaxed max-w-2xl">
+              All artworks were hand illustrated on Photoshop a/o Krita
+            </p>
+             <p className="text-muted-foreground text-m leading-relaxed max-w-2xl">
+              No AI was used in the making of any artworks
             </p>
           </div>
           

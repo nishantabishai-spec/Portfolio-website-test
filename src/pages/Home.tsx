@@ -1,4 +1,4 @@
-import heroBackground from "@/assets/hero-background.jpg";
+import heroBackground from "@/assets/NishantVelavan_house2_W.jpg";
 const Home = () => {
   return <div className="min-h-screen relative">
       <div className="hero-bg min-h-screen flex items-center justify-center" style={{
