@@ -8,6 +8,7 @@ interface Artwork {
   year: string;
   medium: string;
   images: string[];
+  description: string;
 }
 interface ImageViewerProps {
   artwork: Artwork | null;
@@ -83,7 +84,7 @@ export const ImageViewer = ({
                 {artwork.title}
               </h2>
               <p className="text-whimsical-muted text-sm">
-                {artwork.year} • {artwork.medium}
+                {artwork.year} 
               </p>
             </div>
             
@@ -91,17 +92,16 @@ export const ImageViewer = ({
               <div className="h-px bg-gradient-to-r from-whimsical-border/50 via-whimsical-primary/30 to-transparent"></div>
               
               <div className="space-y-2 text-muted-foreground">
-                <p className="text-xs leading-relaxed">Thiarkas represents a unique exploration of form and color, capturing the essence of contemporary artistic expression.</p>
+                <p className="text-xs leading-relaxed">
+                  {artwork.description}
+                </p>
                 
                 <div className="space-y-1 text-xs">
                   <div className="flex justify-between">
                     <span className="text-whimsical-muted">Created:</span>
                     <span>{artwork.year}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-whimsical-muted">Medium:</span>
-                    <span className="truncate ml-2">{artwork.medium}</span>
-                  </div>
+                 
                   {hasMultipleImages && <div className="flex justify-between">
                       <span className="text-whimsical-muted">Images:</span>
                       <span>{artwork.images.length}</span>
