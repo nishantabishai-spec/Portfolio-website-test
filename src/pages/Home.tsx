@@ -5,15 +5,13 @@ const Home = () => {
       backgroundImage: `url(${heroBackground})`
     }}>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-8">
-          <h1 className="gallery-title text-6xl md:text-7xl font-bold text-foreground mb-6">Nishant Velavan</h1>
-          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Contemporary works exploring the boundaries between 
-            form and expression, tradition and innovation.
-          </p>
+          <h1 className="gallery-title text-6xl md:text-7xl font-bold mb-6 text-teal-800">Nishant Velavan</h1>
+          <p className="text-xl leading-relaxed max-w-2xl mx-auto md:text-2xl text-center text-cyan-900">Jack-of-all-styles in a world of whimsy, expression, and detail
+
+
+ In each moment</p>
           <div className="mt-8 pt-4">
-            <p className="text-muted-foreground">
-              Scroll through the navigation to explore my portfolio
-            </p>
+            <p className="text-base text-cyan-800">A weeping world outside my window, I paint what little light I can</p>
           </div>
         </div>
       </div>
