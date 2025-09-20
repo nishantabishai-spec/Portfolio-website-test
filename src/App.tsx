@@ -19,12 +19,12 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <SidebarProvider defaultOpen={true}>
+        <SidebarProvider defaultOpen={false}>
           <div className="min-h-screen flex w-full">
             <AppSidebar />
             <main className="flex-1">
-              <header className="sticky top-0 z-40 bg-whimsical-header/95 backdrop-blur-md border-b-2 border-whimsical-border shadow-lg p-4">
-                <SidebarTrigger className="h-10 w-10 bg-whimsical-accent hover:bg-whimsical-accent-hover text-whimsical-foreground rounded-full shadow-md transition-all duration-300 hover:scale-105" />
+              <header className="sticky top-0 z-40 bg-whimsical-header/50 backdrop-blur-md border-b-2 border-whimsical-border shadow-lg p-4">
+                <SidebarTrigger className="h-10 w-10 bg-whimsical-accent hover:bg-whimsical-accent-hover  text-whimsical-foreground rounded-full shadow-md transition-all duration-300 hover:scale-105" />
               </header>
               <Routes>
                 <Route path="/" element={<Home />} />

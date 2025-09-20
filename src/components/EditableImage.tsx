@@ -22,7 +22,8 @@ export const EditableImage = ({
   placeholder = "Click to add image",
   onImageChange
 }: EditableImageProps) => {
-  const [imageUrl, setImageUrl] = useState(src || "");
+  const [imageUrl, setImageUrl] = useState(src || "@/components/profilepic.png"
+);
   const [isHovered, setIsHovered] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 

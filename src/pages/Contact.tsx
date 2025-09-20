@@ -25,10 +25,9 @@ const Contact = () => {
             </div>
 
             <div className="mt-8 pt-6 border-t border-border">
-              <h3 className="font-medium text-foreground mb-3">Commissions</h3>
+              <h3 className="font-medium text-foreground mb-3">Thanks for your time!</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                I accept commission work for private and corporate clients. 
-                Please reach out to discuss your vision and requirements.
+                I hope you found my work engaging. Feel free to drop me an email if you want to discuss a project or idea and bring it to life! I am open to work for private and corporate clients. Have an incredible rest of your day 
               </p>
             </div>
           </div>
