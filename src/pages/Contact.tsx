@@ -17,11 +17,11 @@ const Contact = () => {
             </h2>
             
             <div className="space-y-8">
-              <EditableContactLink icon={<Mail className="h-5 w-5 text-muted-foreground" />} title="Email" initialUrl="shantvelavan@gmail.com" isEmail={true} />
+              <EditableContactLink icon={<Mail className="h-5 w-5 text-muted-foreground" />} title="Email" initialUrl="shantivelavan@gmail.com" isEmail={true} />
 
               <EditableContactLink icon={<Linkedin className="h-5 w-5 text-muted-foreground" />} title="LinkedIn" initialUrl="https://www.linkedin.com/in/nishant-velavan/" />
 
-              <EditableContactLink icon={<Palette className="h-5 w-5 text-muted-foreground" />} title="Behance" initialUrl="https://www.behance.net/shantivelavan" />
+              <EditableContactLink icon={<Palette className="h-5 w-5 text-muted-foreground" />} title="Behance" initialUrl="https://www.behance.net/NishantVelavan" />
             </div>
 
             <div className="mt-8 pt-6 border-t border-border">
