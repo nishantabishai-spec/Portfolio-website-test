@@ -1,7 +1,7 @@
 import heroBackground from "@/assets/NishantVelavan_DeepGrove__W.webp";
 const Home = () => {
   return <div className="min-h-screen relative">
-      <div className="hero-bg relative h-[125vh] flex items-center justify-center z-0" style={{
+      <div className="hero-bg relative h-[130vh] flex items-center justify-center z-0" style={{
       backgroundImage: `url(${heroBackground})`
     }}>
         <div className="fixed inset-0 flex flex-col items-center justify-center z-10 px-8 text-center">

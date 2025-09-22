@@ -375,7 +375,7 @@ export const EditablePortfolio = () => {
   const categories = [
     {
     title: "Book and Literary Illustration",
-    description: "Evocative book cover, poetry, and adjacent projects",
+    description: "Evocative book covers, poetry, and adjacent projects",
     artworks: [1, 10, 5, 16, 11, 3, 12].map(id => artworks.find(a => a.id === id))// first four artworks by ID
   }, 
   {
