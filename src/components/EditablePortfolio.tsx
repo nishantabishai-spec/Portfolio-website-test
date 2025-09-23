@@ -289,10 +289,22 @@ const initialArtworks: Artwork[] = [
     title: "Justa : Style Study",
     year: "2024",
     medium: "Technique Exploration",
-    description: "An experimental illustration that still fits into the same overall tone of my current core style. A idea was in finding a harmony between soft colour palettes overlayed with hypersaturated linework and etching. This would later evolve into a style used in other future work.",
+    description: "An experimental illustration that still fits into the same overall tone of my current core style. The central idea was in finding a harmony between soft colour palettes overlayed with hypersaturated linework and etching. This would later evolve into a style used in other future work.",
     images: [artworkModules["/src/assets/NishantVelavan_cottageonahillv2.3__W.webp"],
               artworkModules["/src/assets/NishantVelavan_cottageonahillv2__W.webp"],
               artworkModules["/src/assets/NishantVelavan_cottageonahillWIP1__W.webp"],      
+            ],
+  },
+{
+    id: 22,
+    title: "Ventures in Deep Grove",
+    year: "2025",
+    medium: "Key art - Personal Project",
+    description: "A highly detailed artwork with an emphasis on depthful rendering of nature. The feeling of artwork was to bring forth a sense of wonder and adventure through the grand lighting and the depiction of the characters.",
+    images: [artworkModules["/src/assets/NishantVelavan_DeepGroveV2__W.webp"],
+              artworkModules["/src/assets/NishantVelavan_DeepGroveCrop__W.webp"],  
+              artworkModules["/src/assets/NishantVelavan_DeepGroveClean__W.webp"],   
+              artworkModules["/src/assets/NishantVelavan_DeepGroveSketch__W.webp"],    
             ],
   },
 
@@ -381,7 +393,7 @@ export const EditablePortfolio = () => {
   {
       title: "Character and Background Concept",
       description: "Explorations in animation-style composition, background design, and character key art",
-      artworks:  [2, 4, 7, 9, 13].map(id => artworks.find(a => a.id === id))
+      artworks:  [22, 4, 7, 9, 2, 13].map(id => artworks.find(a => a.id === id))
     },
     
     {
