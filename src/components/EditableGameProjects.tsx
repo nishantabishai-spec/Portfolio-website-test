@@ -13,7 +13,7 @@ import { VideoEmbed } from "@/components/VideoEmbed";
 import { GifViewer } from "@/components/GifViewer";
 
 const isEditMode = import.meta.env.VITE_EDIT_MODE === 'true' || import.meta.env.DEV;
-
+const artworkModules = import.meta.glob('@/assets/*.{webp,jpg,png}', { eager: true, as: 'url'  });
 
 interface SubProject {
   id: string;
@@ -62,7 +62,10 @@ const initialProjects: GameProject[] = [
         id: "sub-3",
         title: "Genesis Ledge : Environment Assets and Design",
         description: "Hand-illustrated props and assets used in environment design and assembly",
-        images: ["/src/assets/Tassena_GenLedgeAsset2.webp", "/src/assets/Tassena_GenLedgeAsset3.webp", "/src/assets/Tassena_GenLedgeAsset1.webp", "/src/assets/Tassena_GenLedgeAsset4.webp"]
+        images: [artworkModules["/src/assets/Tassena_GenLedgeAsset2.webp"], 
+        artworkModules["/src/assets/Tassena_GenLedgeAsset3.webp"], 
+          artworkModules["/src/assets/Tassena_GenLedgeAsset1.webp"], artworkModules["/src/assets/Tassena_GenLedgeAsset4.webp"]
+       ]
       },
       {
         id: "sub-1",
