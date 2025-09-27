@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { User, Image, Mail, Home } from "lucide-react";
+import { User, Image, Mail, Home, Gamepad2 } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -16,6 +16,11 @@ const navigationItems = [
     url: "/", 
     icon: Home 
   },
+  {
+  title: "Game Design/Art",
+  url: "/game-design",
+  icon: Gamepad2
+},
   { 
     title: "Portfolio", 
     url: "/portfolio", 

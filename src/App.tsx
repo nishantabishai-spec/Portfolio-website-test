@@ -10,6 +10,7 @@ import Portfolio from "./pages/Portfolio";
 import Bio from "./pages/Bio";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import GameDesign from "./pages/GameDesign";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
                 <Route path="/bio" element={<Bio />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
+                <Route path="/game-design" element={<GameDesign />} />
               </Routes>
             </main>
           </div>
