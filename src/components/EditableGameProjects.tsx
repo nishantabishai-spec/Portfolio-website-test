@@ -52,7 +52,7 @@ const initialProjects: GameProject[] = [
     year: "2024-25",
     engine: "Unreal Engine",
     platform: "PC",
-    description: "A multi-stylistic 2D precision platformer with an heart-felt story to tell. Tassena, by Par2 Studios, is an upcoming game developed by a small but driven multinational indie team. I am one of the founders of the studio and acted as the lead director, artist, and animator for this game. Tassena was in development for year and a half before numerous factors led to the project being placed in indefinate hiatus. The entire team is still on great terms and look forward to when the stars might align again.",
+    description: "A multi-stylistic 2D precision platformer with an heart-felt story to tell. Tassena, by Par2 Studios, is an upcoming game developed by a small but driven multinational indie team. I am one of the founders of the studio and acted as the lead director, artist, and animator for this game. Tassena was in development for year and a half before numerous factors led to the project being placed in indefinate hiatus. The entire team is still on great terms and we look forward to when the stars might align again.",
     type: "game (unreleased)",
     videos: ["https://youtu.be/W-zFKLONLx8"],
      subprojects: [
@@ -63,28 +63,40 @@ const initialProjects: GameProject[] = [
         title: "Genesis Ledge : Environment Assets and Design",
         description: "Hand-illustrated props and assets used in environment design and assembly",
         images: [artworkModules["/src/assets/Tassena_GenLedgeAsset2.webp"], 
-        artworkModules["/src/assets/Tassena_GenLedgeAsset3.webp"], 
-          artworkModules["/src/assets/Tassena_GenLedgeAsset1.webp"], artworkModules["/src/assets/Tassena_GenLedgeAsset4.webp"]
+          artworkModules["/src/assets/Tassena_GenLedgeAsset3.webp"], 
+          artworkModules["/src/assets/Tassena_GenLedgeAsset1.webp"], 
+          artworkModules["/src/assets/Tassena_GenLedgeAsset4.webp"]
        ]
       },
       {
         id: "sub-1",
         title: "The Forest : Environment Assets and Design",
         description: "Hand-illustrated props and assets used in environment design and assembly",
-        images: ["/src/assets/Tassena_Forest_FloraAssetPack.webp", "/src/assets/Tassena_Forest_TreeAssetPack.webp", "/src/assets/Tassena_Forest_CiviliastionAssetPack.webp"]
+        images: [artworkModules["/src/assets/Tassena_Forest_FloraAssetPack.webp" ],
+            artworkModules[ "/src/assets/Tassena_Forest_TreeAssetPack.webp"],
+            artworkModules[ "/src/assets/Tassena_Forest_CiviliastionAssetPack.webp"]
+          ]
       },
       {
         id: "sub-2",
         title: "Working City : Environment Assets and Design",
         description: "Hand-illustrated props and assets used in environment design and assembly",
-        images: ["/src/assets/Tassena_Workers_BuildingAssetPack.webp", "/src/assets/Tassena_Workers_MiscAssetPack.webp", "/src/assets/Tassena_Workers_MetaleryAssetsPack.webp", "/src/assets/Tassena_Workers_TooleryAssetPack.webp"]
+        images: [artworkModules["/src/assets/Tassena_Workers_BuildingAssetPack.webp"],
+                artworkModules[ "/src/assets/Tassena_Workers_MiscAssetPack.webp"],
+                artworkModules[ "/src/assets/Tassena_Workers_MetaleryAssetsPack.webp"], 
+                artworkModules["/src/assets/Tassena_Workers_TooleryAssetPack.webp"],
+      ]
       },
       {
         id: "sub-4",
         title: "Pixel City : Environment Assets and Design",
         description: "Hand-illustrated props and assets used in environment design and assembly",
-        images: ["/src/assets/Tassena_PixelAsset3.webp", "/src/assets/Tassena_PixelAsset1.webp", "/src/assets/Tassena_PixelAsset4.webp", "/src/assets/Tassena_PixelAsset2.webp"]
-      }
+        images: [artworkModules["/src/assets/Tassena_PixelAsset3.webp"],
+          artworkModules[ "/src/assets/Tassena_PixelAsset1.webp"],
+            artworkModules[ "/src/assets/Tassena_PixelAsset4.webp"], 
+              artworkModules["/src/assets/Tassena_PixelAsset2.webp"],
+        ]
+            }
     ],
     gifs: ["https://youtu.be/2s7Il0GWvJ8Y", "https://youtu.be/ydCm3j7quUg" , "https://youtu.be/xgFYilF9PWs", "https://youtu.be/Cm9NiWdzXjo"],
     links: {}
