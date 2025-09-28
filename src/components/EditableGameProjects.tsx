@@ -200,7 +200,7 @@ const [isViewerOpen, setIsViewerOpen] = useState(false);
               <CardHeader>
                 <div className="flex justify-between items-start">
                   <div>
-                    <CardTitle className="text-surface-foreground font-gallery">
+                    <CardTitle className="text-surface-foreground text-3xl font-gallery">
                       {project.title}
                     </CardTitle>
                     <div className="flex items-center gap-2 mt-2">
@@ -254,11 +254,51 @@ const [isViewerOpen, setIsViewerOpen] = useState(false);
                   </div>
                 )}
 
+{project.gifs.length > 0 && (
+  <h3 className="text-xl font-gallery leading-none font-bold text-cyan-800">
+    Key Roles:
+  </h3>
+)}
+{project.gifs.length > 0 && (
+  <h3 className="text-sm text-surface-foreground/80 ">
+    <span className="text-s text-pink-600 font-semibold">
+      Headed Creative Direction:
+    </span>{" "}
+    Developed the core concept of each location being created in different but cohesive art styles. Conceptulised 10 unique art styles to be used in the game.
+  </h3>
+)}
+
+{project.gifs.length > 0 && (
+  <h3 className="text-sm text-surface-foreground/80 ">
+    <span className="text-m text-pink-700 font-semibold">
+      Collaborated across Expertise:
+    </span>{" "}
+      Worked with the team to bring a unified identity between all aspects of the game. Worked with another artist to bring life to the menus and key assets.
+  </h3>
+)}
+
+{project.gifs.length > 0 && (
+  <h3 className="text-sm text-surface-foreground/80 ">
+    <span className="text-m text-pink-800 font-semibold">
+     Designed and Assembled Levels:
+    </span>{" "}
+      Handled a majority of environment asset creation as well as solely planned and assembled all locations in-engine.
+  </h3>
+)}
+
+{project.gifs.length > 0 && (
+  <h3 className="text-sm text-surface-foreground/80 ">
+    <span className="text-m text-pink-900 font-semibold">
+     Created all In-game and Cinematic Animation:
+    </span>{" "}
+      Traditionally animated all in-game characters, backgrounds, props, and enemies. Also animated all trailers and marketing content.
+  </h3>
+)}
 
                {/* Subprojects */}
 {project.subprojects.length > 0 && (
-  <div className="grid grid-cols-1 md:grid-cols- lg:grid-cols-4 gap-4 mt-4">
-    {project.subprojects.map((sub) => (
+  <div className="grid grid-cols-1 md:grid-cols- lg:grid-cols-4 gap-4 py-9 mt-4">
+    {project.subprojects.slice(0, 4).map((sub) => (
       <Card key={sub.id} className="group relative cursor-pointer border hover:shadow-lg transition-all">
         <CardContent className="p-0">
           <img
@@ -300,6 +340,7 @@ const [isViewerOpen, setIsViewerOpen] = useState(false);
   </h3>
 )}
 
+
                 <div className="grid grid-cols-2 gap-2">
   {project.gifs.map((url, index) => (
     <div key={index} className="w-full aspect-[16/9]">
@@ -307,6 +348,44 @@ const [isViewerOpen, setIsViewerOpen] = useState(false);
     </div>
   ))}
 </div>
+
+{/* Subprojects */}
+{project.subprojects.length > 0 && (
+  <div className="grid grid-cols-1 md:grid-cols- lg:grid-cols-4 gap-4 py-9 mt-4">
+    {project.subprojects.slice(4).map((sub) => (
+      <Card key={sub.id} className="group relative cursor-pointer border hover:shadow-lg transition-all">
+        <CardContent className="p-0">
+          <img
+            src={sub.images[0]}
+            alt={sub.title}
+            className="w-full h-40 object-cover rounded-lg"
+            onClick={() => {
+              setViewingSubproject(sub);
+              setIsViewerOpen(true);
+            }}
+          />
+          {sub.images.length > 1 && (
+            <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+              +{sub.images.length - 1}
+            </div>
+          )}
+        </CardContent>
+        <div className="p-2">
+          <h4 className="text-sm font-medium">{sub.title}</h4>
+          <p className="text-xs text-muted-foreground">{sub.description}</p>
+          {isEditMode && (
+            <div className="flex gap-2 mt-1">
+              <Button size="icon" onClick={() => {/* handle edit subproject */}}><Edit className="w-3 h-3"/></Button>
+              <Button size="icon" onClick={() => {/* handle delete subproject */}}><Trash2 className="w-3 h-3"/></Button>
+            </div>
+          )}
+        </div>
+    
+      
+      </Card>
+    ))}
+  </div>
+)}
 
                 {/* Links */}
                 {Object.keys(project.links).length > 0 && (

@@ -16,16 +16,17 @@ const navigationItems = [
     url: "/", 
     icon: Home 
   },
-  {
+ 
+  { 
+    title: "Illustration", 
+    url: "/portfolio", 
+    icon: Image 
+  },
+   {
   title: "Game Design/Art",
   url: "/game-design",
   icon: Gamepad2
 },
-  { 
-    title: "Portfolio", 
-    url: "/portfolio", 
-    icon: Image 
-  },
   { 
     title: "Bio", 
     url: "/bio", 
