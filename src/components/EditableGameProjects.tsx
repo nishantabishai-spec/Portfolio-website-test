@@ -387,6 +387,8 @@ const [isViewerOpen, setIsViewerOpen] = useState(false);
   </div>
 )}
 
+<ExtraAssetsButton />
+
                 {/* Links */}
                 {Object.keys(project.links).length > 0 && (
                   <div className="flex flex-wrap gap-2 pt-2 border-t border-surface-border">
@@ -627,5 +629,23 @@ const [isViewerOpen, setIsViewerOpen] = useState(false);
 
       </div>
     </div>
+  );
+}
+
+export function ExtraAssetsButton() {
+  return (
+    <Button
+      asChild
+      className="bg-pink-200 hover:bg-purple-300 text-pink-900 rounded-xl shadow-md hover:shadow-lg transition-all font-medium text-3xl py-16 px-14"
+    >
+      <a
+        href="https://drive.google.com/drive/folders/1ZAxedCAe1TTplFJY_HKthdyJQi9bEFpv?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <ExternalLink className="w-4 h-4 mr-2" />
+        VIEW ADDITIONAL ASSETS: IN-GAME ANIMATIONS AND CONCEPT ART
+      </a>
+    </Button>
   );
 }
