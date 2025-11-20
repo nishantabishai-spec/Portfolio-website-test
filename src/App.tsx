@@ -24,8 +24,9 @@ const App = () => (
           <div className="min-h-screen flex w-full">
             <AppSidebar />
             <main className="flex-1">
-              <header className="sticky top-0 z-40 bg-whimsical-header/50 backdrop-blur-md border-b-2 border-whimsical-border shadow-lg p-4">
-                <SidebarTrigger className="h-10 w-10 bg-whimsical-accent hover:bg-whimsical-accent-hover  text-whimsical-foreground rounded-full shadow-md transition-all duration-300 hover:scale-105" />
+              <header className="sticky top-0 z-40 bg-gradient-to-r from-purple-200/80 via-yellow-100/80 to-teal-100/70 backdrop-blur-md border-b-2 border-whimsical-border shadow-lg p-5">
+                <SidebarTrigger className="h-10 w-20 bg-teal-400 hover:bg-whimsical-accent-hover text-white rounded-full 
+                                            shadow-md transition-all duration-300 hover:scale-105 [&_svg]:h-5 [&_svg]:w-5 " />
               </header>
               <Routes>
                 <Route path="/" element={<Home />} />
