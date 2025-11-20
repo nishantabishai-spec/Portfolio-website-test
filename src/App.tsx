@@ -11,6 +11,7 @@ import Bio from "./pages/Bio";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import GameDesign from "./pages/GameDesign";
+import ScrollToTop from "./components/ScrolltoTop";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        < ScrollToTop/>
         <SidebarProvider defaultOpen={false}>
           <div className="min-h-screen flex w-full">
             <AppSidebar />
